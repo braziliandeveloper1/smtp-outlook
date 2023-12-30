@@ -12,7 +12,7 @@ def send_mail(remetente, senha, destinatario, subject, mensagem):
     msg['Subject'] = subject
 
 
-    html = 'get rich or die trying'
+    html = 'Lembre-se sua fatura vence hoje!'
     #pt1 = MIMEText(text, 'text')
     pt2 = MIMEText(html, 'html')
     #msg.attach(pt1)
@@ -27,10 +27,10 @@ def send_mail(remetente, senha, destinatario, subject, mensagem):
         server = smtplib.SMTP(smtp_server, smtp_port)
         server.starttls()
 
-        # L OUTLOOK
+        #
         server.login(remetente, senha)
 
-        # SEND EMAIL
+        #
         server.sendmail(remetente, destinatario, msg.as_string())
 
         print(f'EMAIL ENVIADO COM SUCESSO!')
@@ -42,9 +42,9 @@ def send_mail(remetente, senha, destinatario, subject, mensagem):
         server.quit()
 
 
-remetente = 'braziliandeveloper1@outlook.com' # YOUR OUTLOOK
-senha = 'PASSWWORD-KEY-PASSWWORD-KEY'   # YOUR PASSWORD
+remetente = 'braziliandeveloper1@outlook.com' 
+senha = 'PASSWWORD-KEY-PASSWWORD-KEY'  
 destinatario = '50cent@gmail.com'
-subject = 'brazilian phishing'
-mensagem = 'get rich or die trying'
+subject = 'COMUNICADO IMPORTANTE'
+mensagem = 'Lembre-se sua fatura vence hoje!'
 send_mail(remetente, senha, destinatario, subject, mensagem)
